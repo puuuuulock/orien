@@ -152,7 +152,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a =>
 );
 
 // ── 自動スケーラー ──
-// コンテンツがビューポートに収まらないスライドを transform:scale で縮小する
+// コンテンツがビューポートに収まらないスライドを zoom で縮小する。
+// zoom はレイアウトごと縮小するため transform アニメーションと干渉しない。
 function autoScaleSlides() {
   const viewH = window.innerHeight;
 
@@ -160,17 +161,14 @@ function autoScaleSlides() {
     // inner コンテナを特定（section__inner / hero__inner / step-opener 自身）
     const inner = slide.querySelector('.section__inner, .hero__inner') || slide;
 
-    // スケールをリセットしてから実測
-    inner.style.transform = '';
-    inner.style.transformOrigin = '';
-
+    // zoom をリセットしてから実測（正確な scrollHeight を得るため）
+    inner.style.zoom = '';
     void inner.offsetHeight; // reflow を強制
 
     const contentH = inner.scrollHeight;
     if (contentH > viewH) {
       const scale = viewH / contentH;
-      inner.style.transform      = `scale(${scale})`;
-      inner.style.transformOrigin = 'top center';
+      inner.style.zoom = scale;
     }
   });
 }
@@ -180,6 +178,10 @@ buildNav();
 buildCounter();
 // 最初のスライドをアクティブに
 activateSlide(0);
-// スライドを自動スケール
-autoScaleSlides();
+// スライドを自動スケール（画像・フォント読み込み完了後に実行）
+window.addEventListener('load', () => {
+  autoScaleSlides();
+  // フォントの遅延レンダリング対策で少し遅延させて再実行
+  setTimeout(autoScaleSlides, 300);
+});
 window.addEventListener('resize', autoScaleSlides);

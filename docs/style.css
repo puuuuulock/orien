@@ -650,12 +650,12 @@ body {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    UTIL
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.mt-sm  { margin-top: 0.5rem; }
-.mt-md  { margin-top: 1rem; }
-.mt-lg  { margin-top: 1.5rem; }
-.mb-sm  { margin-bottom: 0.5rem; }
-.mb-md  { margin-bottom: 1rem; }
-.mb-lg  { margin-bottom: 1.5rem; }
+.mt-sm  { margin-top: clamp(0.25rem, 0.5vh, 0.5rem); }
+.mt-md  { margin-top: clamp(0.5rem,  1vh,   1rem); }
+.mt-lg  { margin-top: clamp(0.75rem, 1.5vh, 1.5rem); }
+.mb-sm  { margin-bottom: clamp(0.25rem, 0.5vh, 0.5rem); }
+.mb-md  { margin-bottom: clamp(0.5rem,  1vh,   1rem); }
+.mb-lg  { margin-bottom: clamp(0.75rem, 1.5vh, 1.5rem); }
 .text-center  { text-align: center; }
 .text-sm      { font-size: 0.75rem; }
 .text-xs      { font-size: 0.7rem; }
@@ -695,7 +695,7 @@ body {
   font-size: 0.85rem;
   color: var(--warm-600);
   line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(0.5rem, 1.2vh, 1.5rem);
   margin-top: -0.75rem;
 }
 
@@ -951,7 +951,7 @@ body {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .feature-layout {
   display: flex;
-  gap: 2rem;
+  gap: clamp(0.75rem, 1.5vh, 2rem);
   align-items: flex-start;
 }
 
