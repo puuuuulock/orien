@@ -50,16 +50,8 @@ function go(idx) {
 }
 
 // ── ホイールイベント ──
-// セクション内に内部スクロールの余地があればそちらを優先し、
-// 端まで来たら次／前セクションへ移動する
+// overflow-y: hidden で内部スクロール禁止のため、常にスライド間移動のみ行う
 window.addEventListener('wheel', e => {
-  const sec = e.target.closest(SELECTOR);
-  if (sec) {
-    const atTop    = sec.scrollTop <= 0;
-    const atBottom = Math.abs(sec.scrollHeight - sec.scrollTop - sec.clientHeight) < 3;
-    // スクロール方向に余地があれば内部スクロールに任せる
-    if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) return;
-  }
   e.preventDefault();
   if (isMoving) return;
   go(nearest() + (e.deltaY > 0 ? 1 : -1));
