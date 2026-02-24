@@ -80,7 +80,33 @@ document.addEventListener('touchend', e => {
   if (Math.abs(delta) > 50) go(nearest() + (delta > 0 ? 1 : -1));
 }, { passive: true });
 
-// ── ドットナビゲーション＋進捗バー（生成）──
+// ── スライドの短いラベル一覧 ──
+const SLIDE_LABELS = [
+  'TOP',
+  '今日のゴール',
+  'MOSHとは？',
+  '事例紹介',
+  '利用者',
+  '今日の流れ',
+  'STEP 1',
+  'プロフィールリンク',
+  'ページビルダー',
+  'STEP 1 まとめ',
+  'STEP 2',
+  '販売スタイル',
+  '決済方法',
+  '申込後の自動化',
+  'STEP 2 まとめ',
+  'STEP 3',
+  '申込者向けサイト',
+  '購入者の体験',
+  'STEP 3 まとめ',
+  '料金プラン',
+  'サポート',
+  'はじめよう',
+];
+
+// ── ナビゲーション（目次 + 進捗）生成 ──
 let fillEl = null;
 
 function buildNav() {
@@ -88,21 +114,38 @@ function buildNav() {
   nav.className = 'slide-nav';
   nav.setAttribute('aria-label', 'スライドナビゲーション');
 
+  // ドット列を囲むトラック（進捗ライン含む）
+  const track = document.createElement('div');
+  track.className = 'slide-nav__track';
+
   // 進捗フィルライン
   fillEl = document.createElement('div');
   fillEl.className = 'slide-progress-fill';
-  nav.appendChild(fillEl);
+  track.appendChild(fillEl);
 
-  // ドット
+  // ラベル + ドット（1行ずつ）
   slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'slide-dot' + (i === 0 ? ' slide-dot--active' : '');
-    btn.setAttribute('title', `スライド ${i + 1} / ${slides.length}`);
-    btn.setAttribute('aria-label', `スライド ${i + 1}`);
-    btn.addEventListener('click', () => go(i));
-    nav.appendChild(btn);
+    const label = SLIDE_LABELS[i] || `スライド ${i + 1}`;
+
+    const item = document.createElement('div');
+    item.className = 'slide-dot-item' + (i === 0 ? ' slide-dot-item--active' : '');
+    item.addEventListener('click', () => go(i));
+
+    const labelEl = document.createElement('span');
+    labelEl.className = 'slide-dot-label';
+    labelEl.textContent = label;
+
+    const dot = document.createElement('button');
+    dot.className = 'slide-dot' + (i === 0 ? ' slide-dot--active' : '');
+    dot.setAttribute('aria-label', `${label}（${i + 1} / ${slides.length}）`);
+    dot.tabIndex = -1; // クリックは item 側で処理
+
+    item.appendChild(labelEl);
+    item.appendChild(dot);
+    track.appendChild(item);
   });
 
+  nav.appendChild(track);
   document.body.appendChild(nav);
 }
 
@@ -115,13 +158,19 @@ function buildCounter() {
   document.body.appendChild(counterEl);
 }
 
-// ── ドット状態 ＋ 進捗バー更新 ──
+// ── ドット状態 ＋ ラベル状態 ＋ 進捗バー更新 ──
 function updateDots() {
-  const dotEls = document.querySelectorAll('.slide-dot');
+  const dotEls  = document.querySelectorAll('.slide-dot');
+  const itemEls = document.querySelectorAll('.slide-dot-item');
 
   dotEls.forEach((d, i) => {
     d.classList.toggle('slide-dot--active', i === current);
     d.classList.toggle('slide-dot--passed',  i < current);
+  });
+
+  itemEls.forEach((item, i) => {
+    item.classList.toggle('slide-dot-item--active', i === current);
+    item.classList.toggle('slide-dot-item--passed',  i < current);
   });
 
   // 進捗バーの高さ：最初〜最後のドット中心間を current/total-1 で埋める

@@ -1335,32 +1335,41 @@ footer.footer {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SLIDE NAVIGATION — dots + progress bar
+   SLIDE NAVIGATION — 目次 + 進捗バー
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .slide-nav {
   position: fixed;
-  right: 1.1rem;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
   z-index: 1000;
-  pointer-events: auto;
-  padding: 0 2px;
+  padding: 0.6rem 0.875rem 0.6rem 0.875rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px 0 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-right: none;
+  box-shadow: -3px 0 20px rgba(250,110,120,0.08), -1px 0 6px rgba(0,0,0,0.04);
 }
 
-/* グレーのトラックライン（全体） */
-.slide-nav::before {
+/* ドット列のトラック */
+.slide-nav__track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* グレーのトラックライン（ドット中心に合わせて右端に配置） */
+.slide-nav__track::before {
   content: '';
   position: absolute;
   top: 3.5px;
   bottom: 3.5px;
-  left: 50%;
+  right: 3px;
   width: 1.5px;
   background: rgba(250,110,120,0.15);
-  transform: translateX(-50%);
   pointer-events: none;
   border-radius: 1px;
 }
@@ -1369,15 +1378,56 @@ footer.footer {
 .slide-progress-fill {
   position: absolute;
   top: 3.5px;
-  left: 50%;
+  right: 3px;
   width: 2px;
   height: 0%;
   background: linear-gradient(to bottom, var(--brand) 0%, var(--brand-dark) 100%);
-  transform: translateX(-50%);
   transition: height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0 0 1px 1px;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
+}
+
+/* 各スライドの行（ラベル + ドット） */
+.slide-dot-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 1px 0;
+  background: none;
+  border: none;
+  text-align: right;
+  line-height: 1;
+}
+
+/* ラベルテキスト */
+.slide-dot-label {
+  font-size: 9.5px;
+  font-family: inherit;
+  text-align: right;
+  white-space: nowrap;
+  color: rgba(59, 28, 30, 0.22);
+  transition: color 0.25s ease, font-weight 0.1s ease;
+  letter-spacing: 0.01em;
+  user-select: none;
+}
+
+/* 通過済みのラベル */
+.slide-dot-item--passed .slide-dot-label {
+  color: var(--brand-light);
+}
+
+/* 現在のラベル */
+.slide-dot-item--active .slide-dot-label {
+  color: var(--brand-dark);
+  font-weight: 700;
+  font-size: 10px;
+}
+
+/* ホバー時 */
+.slide-dot-item:hover .slide-dot-label {
+  color: var(--brand);
 }
 
 /* ドット */
@@ -1393,9 +1443,10 @@ footer.footer {
   flex-shrink: 0;
   position: relative;
   z-index: 1;
+  pointer-events: none; /* クリックは .slide-dot-item で処理 */
 }
 
-.slide-dot:hover {
+.slide-dot-item:hover .slide-dot {
   background: rgba(250,110,120,0.45);
   border-color: var(--brand);
 }
@@ -1414,8 +1465,9 @@ footer.footer {
   box-shadow: 0 0 0 2px rgba(255,255,255,0.7), 0 0 6px rgba(250,110,120,0.5);
 }
 
-/* スライド番号インジケーター */
+/* スライド番号インジケーター（目次ナビで代替するため非表示） */
 .slide-counter {
+  display: none;
   position: fixed;
   bottom: 1rem;
   right: 1.2rem;
