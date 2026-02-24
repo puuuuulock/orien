@@ -38,7 +38,7 @@
 html {
   /* grain texture background image — fixed so it stays still while content scrolls */
   background-color: #f5c8d0;
-  background-image: url('images/bg.png');
+  background-image: url('images/bg.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
