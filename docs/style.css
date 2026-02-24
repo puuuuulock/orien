@@ -48,8 +48,8 @@ html {
 body {
   font-family: "Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
   color: var(--warm-900);
-  /* ビューポート高さに比例してフォントサイズをスケール */
-  font-size: clamp(12px, 1.9vh, 17px);
+  /* ビューポートに比例してフォントサイズをスケール */
+  font-size: clamp(14px, 2.3vh, 22px);
   line-height: 1.6;
   background: transparent;
 }
@@ -1351,21 +1351,24 @@ footer.footer {
   overflow-y: hidden;   /* 内部スクロール禁止。JSスケーラーで対応 */
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
+  /* スライド自身が縦中央揃えの親になる */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ヒーロー：縦中央揃え */
+/* ヒーロー：スライドが中央揃えを担うため inner は自然な高さのみ */
 .hero__inner {
-  min-height: 100dvh;
+  width: 100%;
   display: flex;
   align-items: center;
 }
 
-/* セクション内コンテンツ：縦中央揃え */
+/* セクション内コンテンツ：スライドが中央揃えを担うため自然な高さのみ */
 .section__inner {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 100dvh;
   box-sizing: border-box;
 }
 
