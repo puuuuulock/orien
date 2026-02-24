@@ -1468,6 +1468,26 @@ footer.footer {
   user-select: none;
 }
 
+/* 大項目 */
+.slide-dot-item--major .slide-dot-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(59, 28, 30, 0.38);
+}
+.slide-dot-item--major { margin-top: 4px; }
+.slide-dot-item--major:first-child { margin-top: 0; }
+
+/* 小項目 */
+.slide-dot-item--minor .slide-dot-label {
+  font-size: 8.5px;
+  padding-right: 2px;
+  color: rgba(59, 28, 30, 0.16);
+}
+.slide-dot-item--minor .slide-dot {
+  width: 5px;
+  height: 5px;
+}
+
 /* 通過済みのラベル */
 .slide-dot-item--passed .slide-dot-label {
   color: var(--brand-light);

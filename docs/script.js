@@ -88,30 +88,32 @@ document.addEventListener('touchend', e => {
   if (Math.abs(delta) > 50) go(current + (delta > 0 ? 1 : -1));
 }, { passive: true });
 
-// ── スライドの短いラベル一覧 ──
-const SLIDE_LABELS = [
-  'TOP',
-  '今日のアジェンダ',
-  'MOSHとは？',
-  '事例紹介',
-  '利用者',
-  '今日の流れ',
-  'STEP 1',
-  'プロフィールリンク',
-  'ページビルダー',
-  'STEP 1 まとめ',
-  'STEP 2',
-  '販売スタイル',
-  '決済方法',
-  '申込後の自動化',
-  'STEP 2 まとめ',
-  'STEP 3',
-  '申込者向けサイト',
-  '購入者の体験',
-  'STEP 3 まとめ',
-  '料金プラン',
-  'サポート',
-  'はじめよう',
+// ── スライド設定（ラベル + 大項目フラグ）──
+// major: true  → 大項目（STEP opener・独立スライド）
+// major: false → 小項目（各 STEP の詳細スライド）
+const SLIDE_CONFIG = [
+  { label: 'TOP',             major: true  },
+  { label: '今日のアジェンダ', major: true  },
+  { label: 'MOSHとは？',      major: true  },
+  { label: '事例紹介',         major: false },
+  { label: '利用者',           major: false },
+  { label: '今日の流れ',       major: false },
+  { label: 'STEP 1',          major: true  },
+  { label: 'プロフィールリンク', major: false },
+  { label: 'ページビルダー',   major: false },
+  { label: 'STEP 1 まとめ',   major: false },
+  { label: 'STEP 2',          major: true  },
+  { label: '販売スタイル',     major: false },
+  { label: '決済方法',         major: false },
+  { label: '申込後の自動化',   major: false },
+  { label: 'STEP 2 まとめ',   major: false },
+  { label: 'STEP 3',          major: true  },
+  { label: '申込者向けサイト', major: false },
+  { label: '購入者の体験',     major: false },
+  { label: 'STEP 3 まとめ',   major: false },
+  { label: '料金プラン',       major: true  },
+  { label: 'サポート',         major: false },
+  { label: 'はじめよう',       major: true  },
 ];
 
 // ── ナビゲーション（目次 + 進捗）生成 ──
@@ -133,10 +135,16 @@ function buildNav() {
 
   // ラベル + ドット（1行ずつ）
   slides.forEach((_, i) => {
-    const label = SLIDE_LABELS[i] || `スライド ${i + 1}`;
+    const cfg   = SLIDE_CONFIG[i] || { label: `スライド ${i + 1}`, major: false };
+    const label = cfg.label;
+    const isMajor = cfg.major;
 
     const item = document.createElement('div');
-    item.className = 'slide-dot-item' + (i === 0 ? ' slide-dot-item--active' : '');
+    item.className = [
+      'slide-dot-item',
+      isMajor ? 'slide-dot-item--major' : 'slide-dot-item--minor',
+      i === 0 ? 'slide-dot-item--active' : '',
+    ].filter(Boolean).join(' ');
     item.addEventListener('click', () => go(i));
 
     const labelEl = document.createElement('span');
