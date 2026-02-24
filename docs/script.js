@@ -83,7 +83,7 @@ document.addEventListener('touchend', e => {
 // ── スライドの短いラベル一覧 ──
 const SLIDE_LABELS = [
   'TOP',
-  '今日のゴール',
+  '今日のアジェンダ',
   'MOSHとは？',
   '事例紹介',
   '利用者',
