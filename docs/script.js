@@ -46,7 +46,10 @@ function go(idx) {
   activateSlide(idx);
   updateDots();
   updateCounter();
-  setTimeout(() => { isMoving = false; }, DURATION);
+  setTimeout(() => {
+    isMoving = false;
+    lastWheelTime = Date.now(); // アニメーション完了後に慣性スクロールをリセット
+  }, DURATION);
 }
 
 // ── ホイールイベント ──

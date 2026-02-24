@@ -1601,3 +1601,17 @@ footer.footer {
 .slide--active .section__inner > *:nth-child(6) { animation-delay: 0.40s; }
 .slide--active .section__inner > *:nth-child(7) { animation-delay: 0.47s; }
 .slide--active .section__inner > *:nth-child(8) { animation-delay: 0.54s; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   固定ロゴ（全スライド共通・左上）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.site-logo-fixed {
+  position: fixed;
+  top: 1.1rem;
+  left: 1.5rem;
+  height: clamp(1.2rem, 2vh, 1.8rem);
+  width: auto;
+  z-index: 1100;
+  pointer-events: none;
+  opacity: 0.85;
+}
