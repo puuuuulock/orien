@@ -1197,9 +1197,9 @@ body {
 }
 
 .step-flow__item--accent {
-  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-dark) 100%);
-  border-color: var(--brand-dark);
-  color: var(--white);
+  background: #f0faf2;
+  border-color: #4caf7d;
+  color: #1e6e42;
   font-weight: 700;
 }
 
@@ -1234,10 +1234,10 @@ body {
 }
 
 .step-flow-row__item--accent {
-  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-dark) 100%);
-  border-color: var(--brand-dark);
-  color: var(--white);
-  box-shadow: 0 2px 8px rgba(250,110,120,0.30);
+  background: #f0faf2;
+  border-color: #4caf7d;
+  color: #1e6e42;
+  font-weight: 700;
 }
 
 .step-flow-row__arrow {
