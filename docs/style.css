@@ -1197,10 +1197,6 @@ body {
 }
 
 .step-flow__item--accent {
-  background: #f0faf2;
-  border-color: #4caf7d;
-  color: #1e6e42;
-  font-weight: 700;
 }
 
 .step-flow__arrow {
@@ -1234,10 +1230,6 @@ body {
 }
 
 .step-flow-row__item--accent {
-  background: #f0faf2;
-  border-color: #4caf7d;
-  color: #1e6e42;
-  font-weight: 700;
 }
 
 .step-flow-row__arrow {
