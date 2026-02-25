@@ -227,6 +227,49 @@ body {
   line-height: 1.5;
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ICEBREAK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.icebreak-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: clamp(1.5rem, 3vh, 2.5rem);
+  max-width: 560px;
+  width: 100%;
+}
+.icebreak-card {
+  background: var(--white);
+  border: 2px solid var(--glass-border);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3vh, 2.5rem) 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(59,28,30,0.06);
+}
+.icebreak-card__num {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--warm-300);
+}
+.icebreak-card--b .icebreak-card__num {
+  color: var(--brand);
+}
+.icebreak-card__label {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+  color: var(--warm-800);
+}
+.icebreak-card__sub {
+  font-size: clamp(0.75rem, 1.5vw, 0.88rem);
+  color: var(--warm-500);
+  text-align: center;
+  line-height: 1.4;
+}
+
 /* ── Note bar ── */
 .note-bar {
   border: 1px solid rgba(250,110,120,0.20);

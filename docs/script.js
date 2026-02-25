@@ -99,6 +99,7 @@ document.addEventListener('touchend', e => {
 const SLIDE_CONFIG = [
   { label: 'TOP',             major: true  },
   { label: '今日のアジェンダ', major: true  },
+  { label: 'アイスブレイク',   major: false },
   { label: 'MOSHとは？',      major: true  },
   { label: '事例紹介',         major: false },
   { label: '利用者',           major: false },
