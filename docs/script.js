@@ -242,12 +242,23 @@ function autoScaleSlides() {
 // ── 初期化 ──
 buildNav();
 buildCounter();
-// 最初のスライドをアクティブに
+// 最初のスライドをアクティブに（暫定）
 activateSlide(0);
 // スライドを自動スケール（画像・フォント読み込み完了後に実行）
 window.addEventListener('load', () => {
   autoScaleSlides();
   // フォントの遅延レンダリング対策で少し遅延させて再実行
   setTimeout(autoScaleSlides, 300);
+  // リフレッシュ時：ブラウザのスクロール復元が終わったあとに
+  // 実際に表示中のスライドへ目次・カウンターを同期する
+  setTimeout(() => {
+    const idx = nearest();
+    if (idx !== current) {
+      current = idx;
+      activateSlide(idx);
+      updateDots();
+      updateCounter();
+    }
+  }, 100);
 });
 window.addEventListener('resize', autoScaleSlides);
