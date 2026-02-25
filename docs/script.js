@@ -119,6 +119,7 @@ const SLIDE_CONFIG = [
   { label: '料金プラン',       major: true  },
   { label: 'サポート',         major: false },
   { label: 'はじめよう',       major: true  },
+  { label: 'Q & A',           major: true  },
 ];
 
 // ── ナビゲーション（目次 + 進捗）生成 ──
