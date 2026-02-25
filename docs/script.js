@@ -70,12 +70,14 @@ window.addEventListener('wheel', e => {
 
 // ── キーボード ──
 document.addEventListener('keydown', e => {
+  const navKeys = ['ArrowDown', 'PageDown', ' ', 'ArrowUp', 'PageUp'];
+  if (!navKeys.includes(e.key)) return;
+  // デフォルトスクロールを常にブロック（isMoving中も）
+  e.preventDefault();
   if (isMoving) return;
   if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
-    e.preventDefault();
     go(current + 1);
-  } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
-    e.preventDefault();
+  } else {
     go(current - 1);
   }
 });
