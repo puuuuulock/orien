@@ -1438,6 +1438,38 @@ body {
   box-shadow: 0 4px 16px rgba(250,110,120,0.35);
 }
 
+/* ── 手数料相談バー ── */
+.fee-consult-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #fff8f0;
+  border: 1.5px solid #f0c080;
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+.fee-consult-bar__text {
+  font-size: 0.85rem;
+  color: var(--warm-800);
+  line-height: 1.6;
+  flex: 1;
+  min-width: 200px;
+}
+.fee-consult-bar__badge {
+  display: inline-block;
+  background: #f0a030;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    PRICE SUBHEAD / PRICE EM
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
