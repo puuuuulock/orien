@@ -250,6 +250,8 @@ body {
 
 /* ── CTA bar ── */
 .cta-bar {
+  text-decoration: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
