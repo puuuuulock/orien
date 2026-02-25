@@ -1654,6 +1654,9 @@ body {
 .slide-dot-item--major:first-child { margin-top: 0; }
 
 /* 小項目 */
+.slide-dot-item--minor {
+  padding-left: 8px;
+}
 .slide-dot-item--minor .slide-dot-label {
   font-size: 8.5px;
   padding-right: 2px;
