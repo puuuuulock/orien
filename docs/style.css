@@ -755,6 +755,75 @@ body {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    FOOTER
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SUPPORT CHAT VISUAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.support-chat-visual {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2vh, 1rem);
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.scv-bubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.scv-bubble--user {
+  flex-direction: row-reverse;
+}
+
+.scv-avatar {
+  font-size: clamp(1.4rem, 2.5vh, 1.8rem);
+  flex-shrink: 0;
+}
+
+.scv-text {
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.6rem 0.9rem;
+  font-size: clamp(0.7rem, 1.2vh, 0.85rem);
+  line-height: 1.5;
+  color: var(--warm-900);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 85%;
+}
+
+.scv-bubble--user .scv-text {
+  background: rgba(250,110,120,0.12);
+  border: 1px solid rgba(250,110,120,0.2);
+}
+
+.scv-name {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--brand);
+  margin-bottom: 0.25rem;
+}
+
+.scv-badge {
+  text-align: center;
+  margin-top: 0.25rem;
+  font-size: clamp(0.75rem, 1.3vh, 0.9rem);
+  color: var(--warm-600);
+  background: rgba(250,110,120,0.08);
+  border: 1px solid rgba(250,110,120,0.2);
+  border-radius: 99px;
+  padding: 0.3rem 1rem;
+  align-self: center;
+}
+
+.scv-badge strong {
+  color: var(--brand);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FOOTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .footer {
   background: rgba(255,255,255,0.65);
   border-top: 1px solid rgba(250,110,120,0.12);
