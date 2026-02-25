@@ -250,15 +250,27 @@ body {
 
 /* ── CTA bar ── */
 .cta-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  align-self: center;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
   color: var(--white);
-  border-radius: 10px;
-  padding: clamp(0.4rem, 0.7vh, 0.75rem) 1.5rem;
+  border-radius: 100px;
+  padding: clamp(0.7rem, 1.2vh, 1rem) clamp(1.75rem, 3.5vw, 3rem);
   text-align: center;
-  font-size: 0.85rem;
+  font-size: clamp(0.9rem, 1.5vh, 1.05rem);
   font-weight: 700;
-  margin-top: clamp(0.5rem, 1vh, 1.5rem);
-  box-shadow: 0 4px 16px rgba(250,110,120,0.35);
+  letter-spacing: 0.03em;
+  margin-top: clamp(0.75rem, 1.5vh, 1.75rem);
+  box-shadow: 0 6px 24px rgba(250,110,120,0.35);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.cta-bar:hover {
+  box-shadow: 0 10px 32px rgba(250,110,120,0.45);
+  transform: translateY(-2px);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
