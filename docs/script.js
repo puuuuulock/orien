@@ -124,7 +124,15 @@ const SLIDE_CONFIG = [
 ];
 
 // ── ナビゲーション（目次 + 進捗）生成 ──
-let fillEl = null;
+let fillEl    = null;
+let topBarEl  = null;
+
+// SP用：上部プログレスバーを生成
+function buildTopBar() {
+  topBarEl = document.createElement('div');
+  topBarEl.className = 'top-progress-bar';
+  document.body.appendChild(topBarEl);
+}
 
 function buildNav() {
   const nav = document.createElement('nav');
@@ -196,10 +204,24 @@ function updateDots() {
     item.classList.toggle('slide-dot-item--passed',  i < current);
   });
 
-  // 進捗バーの高さ：最初〜最後のドット中心間を current/total-1 で埋める
+  // 縦の進捗バー（デスクトップ）
   if (fillEl && slides.length > 1) {
     const pct = (current / (slides.length - 1)) * 100;
     fillEl.style.height = `calc(${pct}% - 0px)`;
+  }
+
+  // 横の進捗バー（SP）
+  if (topBarEl && slides.length > 1) {
+    const pct = (current / (slides.length - 1)) * 100;
+    topBarEl.style.width = `${pct}%`;
+  }
+
+  // SP：アクティブドットをドットバーの中央にスクロール
+  if (window.innerWidth <= 768) {
+    const activeItem = document.querySelector('.slide-dot-item--active');
+    if (activeItem) {
+      activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
   }
 }
 
@@ -246,6 +268,7 @@ function autoScaleSlides() {
 // ── 初期化 ──
 buildNav();
 buildCounter();
+buildTopBar();
 // 最初のスライドをアクティブに（暫定）
 activateSlide(0);
 // スライドを自動スケール（画像・フォント読み込み完了後に実行）
