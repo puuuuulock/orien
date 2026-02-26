@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOSH 新機能ガイド</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ── 新機能ページ補足スタイル ── */
+    .check-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+    .check-sub {
+      font-size: 0.88rem;
+      color: var(--warm-600);
+      line-height: 1.5;
+    }
+    .feature-main {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.4rem, 0.8vh, 0.75rem);
+      max-width: 680px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 全スライド共通：固定ロゴ -->
+<img src="https://mosh.jp/static/brand/header/logo.svg" alt="MOSH" class="site-logo-fixed">
+
+<!-- ══════════════════════════════════════════
+     HERO — スライド 1
+══════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero__inner">
+    <div class="hero__left">
+      <h1 class="hero__subtitle">
+        <img src="https://mosh.jp/static/brand/header/logo.svg" alt="MOSH" class="hero__logo">新機能ガイド
+      </h1>
+      <p class="hero__caption">〜 最新アップデートをご紹介します 〜</p>
+      <p class="hero__catch">プロフィールリンク・AI Studio・ページビルダー・ワークフロー<br>クリエイターのビジネスを、もっとスマートに</p>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     今日紹介する機能 — スライド 2
+══════════════════════════════════════════ -->
+<section class="section section--light">
+  <div class="section__inner">
+    <span class="tag tag--dark">本日の内容</span>
+    <h2 class="section-title">4つの新機能をご紹介</h2>
+
+    <div class="grid-4">
+
+      <div class="step-card">
+        <div class="step-card__icon">🔗</div>
+        <div class="step-card__label">01</div>
+        <div class="step-card__title">プロフィールリンク</div>
+        <div class="step-card__desc">ひとつのURLで全サービスをまとめて届ける</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card__icon">🤖</div>
+        <div class="step-card__label">02</div>
+        <div class="step-card__title">AI Studio</div>
+        <div class="step-card__desc">AIがコンテンツ制作・セールスをサポート</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card__icon">🎨</div>
+        <div class="step-card__label">03</div>
+        <div class="step-card__title">ページビルダー</div>
+        <div class="step-card__desc">ノーコードで自分だけのサービスページを作成</div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-card__icon">⚡</div>
+        <div class="step-card__label">04</div>
+        <div class="step-card__title">ワークフロー</div>
+        <div class="step-card__desc">販売〜フォローアップをまるごと自動化</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     プロフィールリンク — スライド 3
+══════════════════════════════════════════ -->
+<section class="section section--gray">
+  <div class="section__inner">
+    <span class="tag">NEW</span>
+    <h2 class="section-title">🔗 プロフィールリンク</h2>
+    <p class="section-lead">ひとつのURLで、あなたのすべてを届ける</p>
+
+    <div class="feature-layout">
+      <div class="feature-main">
+        <div class="check-row">
+          <span class="check-icon">📎</span>
+          <div>
+            <strong>カスタムURLでリンク集を作成</strong><br>
+            <span class="check-sub">mosh.jp/@あなたのID でシェアするだけ。SNSのプロフ欄に貼るだけで全サービスを一覧表示。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">📊</span>
+          <div>
+            <strong>アクセス解析で人気を把握</strong><br>
+            <span class="check-sub">どのサービスが何回クリックされたかを確認。人気メニューを上位に移動して成約率を上げよう。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">🖼️</span>
+          <div>
+            <strong>プロフ・SNS・メニューを一元管理</strong><br>
+            <span class="check-sub">顔写真・自己紹介・Instagram連携・販売サービスを1ページにまとめて管理できる。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     AI Studio — スライド 4
+══════════════════════════════════════════ -->
+<section class="section section--light">
+  <div class="section__inner">
+    <span class="tag">NEW</span>
+    <h2 class="section-title">🤖 AI Studio</h2>
+    <p class="section-lead">AIがコンテンツ制作・セールスをサポート</p>
+
+    <div class="feature-layout">
+      <div class="feature-main">
+        <div class="check-row">
+          <span class="check-icon">✍️</span>
+          <div>
+            <strong>サービス説明文をAIが自動生成</strong><br>
+            <span class="check-sub">「ヨガ初心者向けオンラインレッスン」と入力するだけで、魅力的なタイトルと説明文が完成。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">💬</span>
+          <div>
+            <strong>お客様への返信をAIが提案</strong><br>
+            <span class="check-sub">問い合わせや予約確認メールの返信文をAIが下書き。トーンを選んでワンクリックで送信。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">📈</span>
+          <div>
+            <strong>価格設定・見せ方をアドバイス</strong><br>
+            <span class="check-sub">類似サービスのデータをもとに、売れやすい価格帯や訴求ポイントをAIが提案。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     ページビルダー — スライド 5
+══════════════════════════════════════════ -->
+<section class="section section--gray">
+  <div class="section__inner">
+    <span class="tag">NEW</span>
+    <h2 class="section-title">🎨 ページビルダー</h2>
+    <p class="section-lead">ノーコードで、プロ品質のサービスページを</p>
+
+    <div class="feature-layout">
+      <div class="feature-main">
+        <div class="check-row">
+          <span class="check-icon">🧱</span>
+          <div>
+            <strong>ブロックを並べるだけでLPが完成</strong><br>
+            <span class="check-sub">テキスト・画像・動画・お客様の声など豊富なブロックをドラッグ＆ドロップで組み合わせるだけ。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">📱</span>
+          <div>
+            <strong>PC・スマホどちらも美しく表示</strong><br>
+            <span class="check-sub">レスポンシブ対応済みなので、スマホからでも崩れず見やすいページが自動で完成。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">🛒</span>
+          <div>
+            <strong>申込・決済ボタンをそのまま埋め込み</strong><br>
+            <span class="check-sub">MOSHの申込フォームや決済機能をページに直接埋め込めるため、別サービス不要で販売まで完結。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     ワークフロー — スライド 6
+══════════════════════════════════════════ -->
+<section class="section section--light">
+  <div class="section__inner">
+    <span class="tag">NEW</span>
+    <h2 class="section-title">⚡ ワークフロー</h2>
+    <p class="section-lead">売れる仕組みを、一度つくったら自動で動く</p>
+
+    <div class="feature-layout">
+      <div class="feature-main">
+        <div class="check-row">
+          <span class="check-icon">📧</span>
+          <div>
+            <strong>購入お礼・案内メールを自動送信</strong><br>
+            <span class="check-sub">購入完了と同時にお礼メールや参加方法の案内を自動で送信。手作業ゼロで対応品質を統一。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">⏰</span>
+          <div>
+            <strong>リマインダー・フォローアップを自動スケジュール</strong><br>
+            <span class="check-sub">「3日後にアンケートを送る」「当日朝にリマインドする」など、タイミングを指定して自動化。</span>
+          </div>
+        </div>
+        <div class="check-row">
+          <span class="check-icon">🔀</span>
+          <div>
+            <strong>条件分岐で顧客ごとに最適な対応を</strong><br>
+            <span class="check-sub">「初回購入者だけ特典を送る」「未参加者に再案内」など、条件によってアクションを自動で切り替え。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     クロージング — スライド 7
+══════════════════════════════════════════ -->
+<section class="section section--dark">
+  <div class="section__inner" style="text-align:center;">
+    <span class="tag" style="background:rgba(255,255,255,0.25); color:#fff;">さあ、はじめよう</span>
+    <h2 class="section-title" style="color:#fff; font-size:clamp(1.6rem, 3vh, 2.8rem);">今すぐ新機能を試してみましょう</h2>
+    <p style="color:rgba(255,255,255,0.85); margin-bottom: clamp(1.5rem, 3vh, 2.5rem); font-size:1.05rem;">
+      すべての機能はMOSHのダッシュボードからすぐに利用できます。<br>
+      まずは1つ、試してみてください。
+    </p>
+
+    <div class="grid-2" style="max-width:560px; margin: 0 auto clamp(1.5rem, 3vh, 2rem);">
+      <div class="step-card" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.30);">
+        <div class="step-card__icon">🔗</div>
+        <div class="step-card__title" style="color:#fff;">プロフィールリンク</div>
+        <div class="step-card__desc" style="color:rgba(255,255,255,0.75);">ダッシュボード → プロフィール</div>
+      </div>
+      <div class="step-card" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.30);">
+        <div class="step-card__icon">🤖</div>
+        <div class="step-card__title" style="color:#fff;">AI Studio</div>
+        <div class="step-card__desc" style="color:rgba(255,255,255,0.75);">サービス作成 → AI生成</div>
+      </div>
+      <div class="step-card" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.30);">
+        <div class="step-card__icon">🎨</div>
+        <div class="step-card__title" style="color:#fff;">ページビルダー</div>
+        <div class="step-card__desc" style="color:rgba(255,255,255,0.75);">マイページ → ページ編集</div>
+      </div>
+      <div class="step-card" style="background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.30);">
+        <div class="step-card__icon">⚡</div>
+        <div class="step-card__title" style="color:#fff;">ワークフロー</div>
+        <div class="step-card__desc" style="color:rgba(255,255,255,0.75);">自動化 → ワークフロー</div>
+      </div>
+    </div>
+
+    <a href="https://mosh.jp/dashboard" target="_blank" rel="noopener" class="cta-bar" style="display:inline-block; text-decoration:none; max-width:320px; margin:0 auto;">
+      MOSHダッシュボードを開く →
+    </a>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
