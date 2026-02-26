@@ -7,120 +7,141 @@
   <link rel="stylesheet" href="../style.css">
   <style>
     /* ════════════════════════════════
-       新機能ページ 補足スタイル
+       新機能ページ 補足スタイル v2（可読性改善）
     ════════════════════════════════ */
 
-    /* 機能ヘッダー（番号バッジ + タイトル） */
+    /* ── 全体: セクションパディングを適正化（parent CSS override）── */
+    .section__inner {
+      padding: clamp(0.6rem, 1.4vh, 1.8rem) clamp(1.2rem, 4vw, 4rem);
+    }
+    .tag           { margin-bottom: clamp(0.3rem, 0.7vh, 0.8rem); }
+    .section-title { margin-bottom: clamp(0.4rem, 0.9vh, 1.1rem); }
+
+    /* ── check-row パディング縮小（parent CSS override）── */
+    .check-row { padding: 0.5rem 0.85rem; }
+
+    /* ── 機能ヘッダー（番号バッジ + タイトル） ── */
     .feature-header {
       display: flex;
       align-items: center;
       gap: 0.85rem;
-      margin-bottom: clamp(0.5rem, 1vh, 0.9rem);
+      margin-bottom: clamp(0.35rem, 0.7vh, 0.7rem);
     }
     .feature-num {
-      width: 2.6rem; height: 2.6rem;
+      width: 2.4rem; height: 2.4rem;
       border-radius: 50%;
       background: var(--brand);
       color: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; font-weight: 900;
+      font-size: 0.95rem; font-weight: 900;
       flex-shrink: 0;
       box-shadow: 0 2px 10px rgba(250,110,120,0.35);
     }
     .feature-name {
-      font-size: clamp(1.3rem, 2.4vh, 2rem);
+      font-size: clamp(1.2rem, 2.2vh, 1.8rem);
       font-weight: 900;
       color: var(--warm-900);
-      line-height: 1.1;
+      line-height: 1.15;
     }
     .feature-sub {
-      font-size: 0.88rem;
+      font-size: 0.83rem;
       color: var(--warm-500);
-      margin-top: 0.25rem;
+      margin-top: 0.2rem;
     }
 
-    /* ── Before/After ─────────────────── */
+    /* ── Hero catch テキスト ── */
+    .hero__catch {
+      font-size: clamp(1rem, 1.8vh, 1.3rem);
+      font-weight: 700;
+      color: var(--warm-700);
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Before/After — 左ボーダーアクセントで明確に差別化 ── */
     .before-after {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.6rem;
-      margin-bottom: clamp(0.55rem, 1vh, 0.9rem);
+      gap: 0.5rem;
+      margin-bottom: clamp(0.4rem, 0.8vh, 0.75rem);
     }
     @media (max-width: 600px) {
       .before-after { grid-template-columns: 1fr; }
     }
     .ba-item {
       border-radius: 10px;
-      padding: 0.55rem 0.85rem;
+      padding: 0.5rem 0.8rem;
       font-size: 0.82rem;
       line-height: 1.5;
+      border: 1px solid;
+      border-left-width: 3px;
     }
     .ba-item__label {
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
     }
     .ba-item--before {
-      background: rgba(120,120,130,0.08);
-      border: 1px solid rgba(120,120,130,0.2);
-      color: var(--warm-600);
+      background: rgba(110,110,125,0.07);
+      border-color: rgba(120,120,130,0.20);
+      border-left-color: rgba(150,150,160,0.55);
+      color: var(--warm-500);
     }
-    .ba-item--before .ba-item__label { color: var(--warm-500); }
+    .ba-item--before .ba-item__label { color: var(--warm-400); }
     .ba-item--after {
-      background: rgba(250,110,120,0.07);
-      border: 1px solid rgba(250,110,120,0.3);
+      background: rgba(250,110,120,0.09);
+      border-color: rgba(250,110,120,0.22);
+      border-left-color: var(--brand);
       color: var(--warm-700);
       font-weight: 600;
     }
     .ba-item--after .ba-item__label { color: var(--brand); }
 
-    /* ── 4機能フロー ───────────────────── */
+    /* ── 4機能フロー — トップボーダーアクセント追加・旧ツール名を非表示 ── */
     .feature-flow {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 0.4rem;
       max-width: 700px;
-      margin: clamp(0.8rem,1.5vh,1.4rem) auto 0;
+      margin: clamp(0.7rem, 1.2vh, 1.2rem) auto 0;
     }
     .feature-flow__box {
       flex: 1;
       background: var(--glass-bg);
       border: 1.5px solid var(--glass-border);
+      border-top: 3px solid var(--brand);
       border-radius: 14px;
-      padding: clamp(0.75rem,1.3vh,1rem) 0.7rem;
+      padding: clamp(0.65rem, 1.1vh, 0.9rem) 0.7rem;
       text-align: center;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       box-shadow: var(--glass-shadow);
     }
-    .feature-flow__icon { font-size: clamp(1.3rem,2.2vh,1.7rem); margin-bottom: 0.25rem; }
+    .feature-flow__icon { font-size: clamp(1.2rem, 2vh, 1.55rem); margin-bottom: 0.2rem; }
     .feature-flow__name {
-      font-size: clamp(0.78rem,1.2vh,0.88rem);
+      font-size: clamp(0.75rem, 1.15vh, 0.85rem);
       font-weight: 800;
       color: var(--warm-800);
-      line-height: 1.3;
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
     }
     .feature-flow__role {
       display: inline-block;
-      font-size: 0.62rem; font-weight: 700;
+      font-size: 0.6rem; font-weight: 700;
       background: var(--brand); color: #fff;
-      border-radius: 20px; padding: 0.12rem 0.55rem;
-      margin: 0.3rem 0 0.2rem;
+      border-radius: 20px; padding: 0.1rem 0.5rem;
+      margin-bottom: 0.2rem;
     }
-    .feature-flow__prev {
-      font-size: 0.65rem;
-      color: var(--warm-400);
-      text-decoration: line-through;
-      margin-bottom: 0.15rem;
-    }
+    .feature-flow__prev { display: none; }  /* 旧ツール名は非表示 */
     .feature-flow__desc {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--warm-600);
-      line-height: 1.4;
+      line-height: 1.35;
     }
     .feature-flow__arrow {
-      font-size: 1.1rem; color: var(--brand);
+      font-size: 1rem; color: var(--brand);
       font-weight: 700; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
     }
     @media (max-width: 768px) {
       .feature-flow { flex-wrap: wrap; gap: 0.5rem; }
@@ -128,7 +149,7 @@
       .feature-flow__arrow { display: none; }
     }
 
-    /* ── 無料バッジ ───────────────────── */
+    /* ── 無料バッジ ── */
     .free-badge {
       display: inline-flex;
       align-items: center;
@@ -136,9 +157,9 @@
       background: linear-gradient(135deg, #fa6e78 0%, #ff9a6c 100%);
       color: #fff;
       font-weight: 800;
-      font-size: clamp(0.78rem, 1.2vh, 0.9rem);
+      font-size: clamp(0.75rem, 1.15vh, 0.88rem);
       border-radius: 30px;
-      padding: 0.35rem 1.1rem;
+      padding: 0.3rem 1rem;
       box-shadow: 0 3px 14px rgba(250,110,120,0.45);
       letter-spacing: 0.02em;
     }
@@ -146,66 +167,66 @@
       background: rgba(250,110,120,0.09);
       border: 2px solid rgba(250,110,120,0.38);
       border-radius: 16px;
-      padding: clamp(0.9rem,1.6vh,1.4rem) 1.6rem;
+      padding: clamp(0.75rem, 1.4vh, 1.2rem) 1.5rem;
       max-width: 480px;
-      margin: clamp(1rem,2vh,1.8rem) auto;
+      margin: clamp(0.8rem, 1.6vh, 1.5rem) auto;
       text-align: center;
     }
     .free-callout__title {
-      font-size: clamp(1rem,1.8vh,1.35rem);
+      font-size: clamp(0.95rem, 1.7vh, 1.25rem);
       font-weight: 900;
       color: var(--brand);
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
     .free-callout__body {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--warm-700);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
-    /* ── 2カラムレイアウト ─────────────── */
+    /* ── 2カラムレイアウト ── */
     .feature-2col {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: clamp(1rem, 2vw, 2.5rem);
+      gap: clamp(0.8rem, 1.8vw, 2.2rem);
       align-items: start;
     }
     @media (max-width: 768px) {
       .feature-2col { grid-template-columns: 1fr; }
     }
 
-    /* 小見出しラベル */
+    /* ── 小見出しラベル ── */
     .sub-label {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       color: var(--brand);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: clamp(0.4rem, 0.8vh, 0.7rem);
+      margin-bottom: clamp(0.25rem, 0.5vh, 0.55rem);
     }
 
-    /* チェックアイテム */
+    /* ── チェックアイテム ── */
     .check-icon {
-      font-size: 1.3rem; flex-shrink: 0; width: 2rem; text-align: center;
+      font-size: 1.25rem; flex-shrink: 0; width: 1.9rem; text-align: center;
     }
     .check-sub {
-      font-size: 0.82rem; color: var(--warm-600); line-height: 1.5; margin-top: 0.15rem;
+      font-size: 0.78rem; color: var(--warm-600); line-height: 1.45; margin-top: 0.12rem;
     }
 
-    /* 使い方ステップ */
-    .how-steps { display: flex; flex-direction: column; gap: clamp(0.3rem, 0.6vh, 0.5rem); }
+    /* ── 使い方ステップ ── */
+    .how-steps { display: flex; flex-direction: column; gap: clamp(0.25rem, 0.5vh, 0.45rem); }
     .how-step {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.7rem;
       align-items: flex-start;
     }
     .how-step__num {
-      width: 1.8rem; height: 1.8rem;
+      width: 1.7rem; height: 1.7rem;
       border-radius: 50%;
       background: var(--brand); color: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; font-weight: 900; flex-shrink: 0;
+      font-size: 0.78rem; font-weight: 900; flex-shrink: 0;
       margin-top: 0.1rem;
     }
     .how-step__body {
@@ -213,89 +234,89 @@
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       border-radius: 10px;
-      padding: 0.55rem 0.85rem;
+      padding: 0.45rem 0.8rem;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
     }
-    .how-step__title { font-size: 0.92rem; font-weight: 700; color: var(--warm-800); }
-    .how-step__desc  { font-size: 0.78rem; color: var(--warm-600); margin-top: 0.15rem; line-height: 1.45; }
+    .how-step__title { font-size: 0.88rem; font-weight: 700; color: var(--warm-800); }
+    .how-step__desc  { font-size: 0.75rem; color: var(--warm-600); margin-top: 0.12rem; line-height: 1.4; }
     .url-tag {
       display: inline-block;
       font-family: monospace;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       background: rgba(250,110,120,0.1);
       color: var(--brand);
       border-radius: 5px;
       padding: 0.05rem 0.35rem;
-      margin-top: 0.15rem;
+      margin-top: 0.1rem;
     }
 
-    /* 活用シーンカード */
-    .usecase-cards { display: flex; flex-direction: column; gap: clamp(0.3rem, 0.6vh, 0.5rem); }
+    /* ── 活用シーンカード ── */
+    .usecase-cards { display: flex; flex-direction: column; gap: clamp(0.25rem, 0.5vh, 0.45rem); }
     .usecase-card {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       border-radius: 12px;
-      padding: 0.75rem 1rem;
+      padding: 0.65rem 0.95rem;
       box-shadow: var(--glass-shadow);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
     .usecase-card__role {
-      font-size: 0.72rem; font-weight: 700; color: var(--brand);
-      margin-bottom: 0.2rem;
+      font-size: 0.7rem; font-weight: 700; color: var(--brand);
+      margin-bottom: 0.15rem;
     }
     .usecase-card__text {
-      font-size: 0.85rem; color: var(--warm-700); line-height: 1.55;
+      font-size: 0.82rem; color: var(--warm-700); line-height: 1.5;
     }
 
-    /* ビジュアルパネル（右カラム） */
+    /* ── ビジュアルパネル（右カラム）── */
     .visual-panel {
       background: var(--glass-bg-lt);
       border: 1px solid var(--glass-border);
       border-radius: 14px;
-      padding: 1rem;
+      padding: 0.85rem;
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       box-shadow: var(--glass-shadow);
     }
     .visual-panel__title {
-      font-size: 0.72rem; font-weight: 700; color: var(--warm-500);
-      text-align: center; margin-bottom: 0.75rem; letter-spacing: 0.05em;
+      font-size: 0.7rem; font-weight: 700; color: var(--warm-500);
+      text-align: center; margin-bottom: 0.65rem; letter-spacing: 0.05em;
     }
 
-    /* AI Studio ビジュアル */
+    /* ── AI Studio ビジュアル ── */
     .ai-prompt-box {
       background: rgba(255,255,255,0.8);
       border: 1.5px solid rgba(250,110,120,0.25);
-      border-radius: 8px; padding: 0.6rem 0.8rem;
-      font-size: 0.8rem; color: var(--warm-700);
-      margin-bottom: 0.5rem;
+      border-radius: 8px; padding: 0.5rem 0.75rem;
+      font-size: 0.78rem; color: var(--warm-700);
+      margin-bottom: 0.45rem;
     }
     .ai-prompt-box__label {
-      font-size: 0.65rem; font-weight: 700; color: var(--warm-500); margin-bottom: 0.2rem;
+      font-size: 0.62rem; font-weight: 700; color: var(--warm-500); margin-bottom: 0.15rem;
     }
     .ai-arrow-center {
-      text-align: center; font-size: 0.75rem; color: var(--brand);
-      font-weight: 700; margin: 0.25rem 0;
+      text-align: center; font-size: 0.72rem; color: var(--brand);
+      font-weight: 700; margin: 0.2rem 0;
     }
     .ai-result-box {
       background: rgba(250,110,120,0.08);
       border: 1.5px solid rgba(250,110,120,0.35);
-      border-radius: 8px; padding: 0.6rem 0.8rem;
-      font-size: 0.8rem; color: var(--warm-800);
+      border-radius: 8px; padding: 0.5rem 0.75rem;
+      font-size: 0.78rem; color: var(--warm-800);
     }
     .ai-result-box__label {
-      font-size: 0.65rem; font-weight: 700; color: var(--brand); margin-bottom: 0.2rem;
+      font-size: 0.62rem; font-weight: 700; color: var(--brand); margin-bottom: 0.15rem;
     }
 
-    /* ページビルダー ビジュアル */
+    /* ── ページビルダー ビジュアル ── */
     .pb-block {
       background: rgba(255,255,255,0.7);
       border: 1.5px dashed rgba(250,110,120,0.35);
-      border-radius: 7px; padding: 0.45rem 0.75rem;
-      font-size: 0.78rem; color: var(--warm-700);
-      margin-bottom: 0.35rem; text-align: center;
+      border-radius: 7px; padding: 0.4rem 0.7rem;
+      font-size: 0.75rem; color: var(--warm-700);
+      margin-bottom: 0.3rem; text-align: center;
     }
     .pb-block--cta {
       background: rgba(250,110,120,0.12);
@@ -303,21 +324,21 @@
       font-weight: 700; color: var(--brand);
     }
 
-    /* ワークフロー ビジュアル */
+    /* ── ワークフロー ビジュアル ── */
     .wf-node {
       background: rgba(255,255,255,0.8);
       border: 1.5px solid var(--glass-border);
-      border-radius: 8px; padding: 0.45rem 0.75rem;
-      font-size: 0.78rem; color: var(--warm-800);
+      border-radius: 8px; padding: 0.4rem 0.7rem;
+      font-size: 0.75rem; color: var(--warm-800);
       text-align: center;
     }
     .wf-node--trigger { border-color: var(--brand); background: rgba(250,110,120,0.08); font-weight: 700; }
     .wf-arrow-down {
       text-align: center; font-size: 0.7rem; color: var(--warm-400);
-      padding: 0.1rem 0;
+      padding: 0.08rem 0;
     }
     .wf-arrow-down span {
-      display: block; font-size: 0.65rem; color: var(--brand); font-weight: 600;
+      display: block; font-size: 0.62rem; color: var(--brand); font-weight: 600;
     }
   </style>
 </head>
