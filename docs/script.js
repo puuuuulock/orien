@@ -227,7 +227,7 @@ function autoScaleSlides() {
 
   slides.forEach(slide => {
     // inner コンテナを特定（section__inner / hero__inner / step-opener 自身）
-    const inner = slide.querySelector('.section__inner, .hero__inner') || slide;
+    const inner = slide.querySelector('.section__inner, .hero__inner, .step-opener__inner') || slide;
 
     // zoom をリセットしてから実測（正確な scrollHeight を得るため）
     inner.style.zoom = '';
