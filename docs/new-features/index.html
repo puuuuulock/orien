@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MOSH 新機能ガイド</title>
+  <title>MOSH 新機能説明会</title>
   <link rel="stylesheet" href="../style.css">
   <style>
     /* ════════════════════════════════
@@ -184,6 +184,29 @@
       line-height: 1.6;
     }
 
+    /* ── Feature CTA ── */
+    .feature-cta {
+      text-align: center;
+      margin-top: clamp(0.8rem, 1.5vh, 1.5rem);
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #fa6e78 0%, #ff9a6c 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: clamp(0.85rem, 1.4vh, 1rem);
+      border-radius: 30px;
+      padding: 0.65rem 2rem;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(250,110,120,0.40);
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(250,110,120,0.55);
+    }
+
     /* ── 2カラムレイアウト ── */
     .feature-2col {
       display: grid;
@@ -248,176 +271,6 @@
       margin-top: 0.1rem;
     }
 
-    /* ── 活用シーンカード ── */
-    .usecase-cards { display: flex; flex-direction: column; gap: clamp(0.25rem, 0.5vh, 0.45rem); }
-    .usecase-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 0.55rem 0.95rem;
-      box-shadow: var(--glass-shadow);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .usecase-card__role {
-      font-size: 0.78rem; font-weight: 700; color: var(--brand);
-      margin-bottom: 0.1rem;
-    }
-    .usecase-card__text {
-      font-size: 0.8rem; color: var(--warm-700); line-height: 1.4;
-    }
-
-    /* ── ビジュアルパネル（右カラム）── */
-    .visual-panel {
-      background: var(--glass-bg-lt);
-      border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      padding: 0.85rem;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: var(--glass-shadow);
-    }
-    .visual-panel__title {
-      font-size: 0.7rem; font-weight: 700; color: var(--warm-500);
-      text-align: center; margin-bottom: 0.65rem; letter-spacing: 0.05em;
-    }
-
-    /* ── ページビルダー ビジュアル ── */
-    .pb-block {
-      background: rgba(255,255,255,0.7);
-      border: 1.5px dashed rgba(250,110,120,0.35);
-      border-radius: 7px; padding: 0.4rem 0.7rem;
-      font-size: 0.75rem; color: var(--warm-700);
-      margin-bottom: 0.3rem; text-align: center;
-    }
-    .pb-block--cta {
-      background: rgba(250,110,120,0.12);
-      border-color: var(--brand);
-      font-weight: 700; color: var(--brand);
-    }
-
-    /* ── ワークフロー ビジュアル ── */
-    .wf-node {
-      background: rgba(255,255,255,0.8);
-      border: 1.5px solid var(--glass-border);
-      border-radius: 8px; padding: 0.4rem 0.7rem;
-      font-size: 0.75rem; color: var(--warm-800);
-      text-align: center;
-    }
-    .wf-node--trigger { border-color: var(--brand); background: rgba(250,110,120,0.08); font-weight: 700; color: var(--brand); }
-    .wf-node--action  { border-color: rgba(80,130,255,0.4); background: rgba(80,130,255,0.07); color: #2244bb; }
-    .wf-node--follow  { border-color: rgba(60,180,100,0.45); background: rgba(60,180,100,0.08); font-weight: 600; color: #1e7a45; }
-    .wf-arrow-down {
-      text-align: center; font-size: 0.7rem; color: var(--warm-400);
-      padding: 0.08rem 0;
-    }
-    .wf-arrow-down span {
-      display: block; font-size: 0.62rem; color: var(--brand); font-weight: 600;
-    }
-
-    /* ── プロフィールリンク — stat ボックス ── */
-    .stat-row {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.65rem;
-      justify-content: center;
-    }
-    .stat-box {
-      flex: 1;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 10px;
-      padding: 0.5rem 0.3rem;
-      text-align: center;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-    .stat-box__num {
-      font-size: clamp(0.95rem, 1.6vh, 1.25rem);
-      font-weight: 900;
-      color: var(--brand);
-      line-height: 1;
-    }
-    .stat-box__label {
-      font-size: 0.62rem;
-      color: var(--warm-600);
-      margin-top: 0.18rem;
-      line-height: 1.3;
-    }
-
-    /* ── AI Studio — チャットバブル UI ── */
-    .chat-container {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .chat-bubble {
-      max-width: 88%;
-      padding: 0.48rem 0.72rem;
-      border-radius: 14px;
-      font-size: 0.78rem;
-      line-height: 1.5;
-    }
-    .chat-bubble--user {
-      align-self: flex-end;
-      background: rgba(250,110,120,0.12);
-      border: 1px solid rgba(250,110,120,0.28);
-      color: var(--warm-700);
-      border-bottom-right-radius: 4px;
-    }
-    .chat-bubble--ai {
-      align-self: flex-start;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid var(--glass-border);
-      color: var(--warm-800);
-      border-bottom-left-radius: 4px;
-    }
-    .chat-bubble__label {
-      font-size: 0.62rem;
-      font-weight: 700;
-      margin-bottom: 0.12rem;
-    }
-    .chat-bubble--user .chat-bubble__label { color: var(--brand); }
-    .chat-bubble--ai  .chat-bubble__label { color: var(--warm-400); }
-    .chat-timer {
-      font-size: 0.62rem;
-      color: var(--warm-400);
-      text-align: center;
-      padding: 0.05rem 0;
-    }
-
-    /* ── ページビルダー — ブラウザモック ── */
-    .browser-mock {
-      background: #fff;
-      border: 1.5px solid rgba(0,0,0,0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
-    }
-    .browser-mock__bar {
-      background: #f0f0f2;
-      padding: 0.35rem 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    .browser-mock__dots { display: flex; gap: 0.22rem; }
-    .browser-mock__dot  { width: 0.5rem; height: 0.5rem; border-radius: 50%; }
-    .browser-mock__dot:nth-child(1) { background: #ff5f57; }
-    .browser-mock__dot:nth-child(2) { background: #febc2e; }
-    .browser-mock__dot:nth-child(3) { background: #28c840; }
-    .browser-mock__url {
-      flex: 1;
-      font-size: 0.62rem;
-      color: var(--warm-500);
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 4px;
-      padding: 0.1rem 0.4rem;
-      font-family: monospace;
-    }
-    .browser-mock__body { padding: 0.5rem 0.6rem; }
   </style>
 </head>
 <body>
@@ -432,7 +285,7 @@
   <div class="hero__inner">
     <div class="hero__left">
       <h1 class="hero__subtitle">
-        <img src="https://mosh.jp/static/brand/header/logo.svg" alt="MOSH" class="hero__logo">新機能ガイド
+        <img src="https://mosh.jp/static/brand/header/logo.svg" alt="MOSH" class="hero__logo">新機能説明会
       </h1>
       <p class="hero__caption">〜 最新アップデートをご紹介します 〜</p>
       <p class="hero__catch">プロフィールリンク・AI Studio<br>ページビルダー・ワークフロー</p>
@@ -456,13 +309,13 @@
         <div class="step-card__icon">🔗</div>
         <div class="step-card__label">01</div>
         <div class="step-card__title">プロフィールリンク</div>
-        <div class="step-card__desc">ひとつのURLで全サービスをまとめて届ける</div>
+        <div class="step-card__desc">ひとつのURLで全サービスをまとめて届け、リスト獲得まで</div>
       </div>
       <div class="step-card">
         <div class="step-card__icon">🤖</div>
         <div class="step-card__label">02</div>
         <div class="step-card__title">AI Studio</div>
-        <div class="step-card__desc">AIがコンテンツ制作・セールスをサポート</div>
+        <div class="step-card__desc">AIがサービス作成をサポート</div>
       </div>
       <div class="step-card">
         <div class="step-card__icon">🎨</div>
@@ -485,56 +338,9 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     スライド 3 — 4機能のつながり
+     スライド 3 — プロフィールリンク
 ══════════════════════════════════════════ -->
 <section class="section section--gray">
-  <div class="section__inner">
-    <span class="tag tag--dark">全体像</span>
-    <h2 class="section-title">4機能で、ビジネスの全フェーズをカバー</h2>
-    <p style="text-align:center; font-size:clamp(0.85rem,1.3vh,0.95rem); color:var(--warm-600); margin: -0.3rem 0 0;">
-      バラバラのツールが必要だった作業が、MOSHひとつで完結します
-    </p>
-
-    <div class="feature-flow">
-      <div class="feature-flow__box">
-        <div class="feature-flow__icon">🔗</div>
-        <div class="feature-flow__name">プロフィール<br>リンク</div>
-        <div class="feature-flow__role">集客</div>
-        <div class="feature-flow__prev">外部リンクツール</div>
-        <div class="feature-flow__desc">SNSから<br>ページへ誘導</div>
-      </div>
-      <div class="feature-flow__arrow">→</div>
-      <div class="feature-flow__box">
-        <div class="feature-flow__icon">🤖</div>
-        <div class="feature-flow__name">AI Studio</div>
-        <div class="feature-flow__role">制作</div>
-        <div class="feature-flow__prev">AI文章ツール</div>
-        <div class="feature-flow__desc">文章・コンテンツを<br>AI生成</div>
-      </div>
-      <div class="feature-flow__arrow">→</div>
-      <div class="feature-flow__box">
-        <div class="feature-flow__icon">🎨</div>
-        <div class="feature-flow__name">ページ<br>ビルダー</div>
-        <div class="feature-flow__role">訴求</div>
-        <div class="feature-flow__prev">LP制作ツール</div>
-        <div class="feature-flow__desc">魅力的なLPで<br>成約を高める</div>
-      </div>
-      <div class="feature-flow__arrow">→</div>
-      <div class="feature-flow__box">
-        <div class="feature-flow__icon">⚡</div>
-        <div class="feature-flow__name">ワークフロー</div>
-        <div class="feature-flow__role">自動化</div>
-        <div class="feature-flow__prev">メール配信ツール</div>
-        <div class="feature-flow__desc">購入後の<br>フォロー自動化</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     スライド 4 — プロフィールリンク①（概要）
-══════════════════════════════════════════ -->
-<section class="section section--light">
   <div class="section__inner">
 
     <div class="feature-header">
@@ -545,92 +351,34 @@
       </div>
     </div>
 
-    <!-- Before / After -->
-    <div class="before-after">
-      <div class="ba-item ba-item--before">
-        <div class="ba-item__label">😓 今まで</div>
-        SNSのリンクが1つだけで、複数サービスを同時に案内できない
-      </div>
-      <div class="ba-item ba-item--after">
-        <div class="ba-item__label">✅ これから</div>
-        1つのURLで全サービスを一覧表示。アクセス解析もできる
-      </div>
-    </div>
-
     <div class="feature-2col">
-      <!-- 左：できること -->
+      <!-- 左：説明 -->
       <div>
+        <div class="before-after">
+          <div class="ba-item ba-item--before">
+            <div class="ba-item__label">😓 今まで</div>
+            SNSのリンクが1つだけで、複数サービスを同時に案内できない
+          </div>
+          <div class="ba-item ba-item--after">
+            <div class="ba-item__label">✅ これから</div>
+            1つのURLで全サービスを一覧表示
+          </div>
+        </div>
         <span class="sub-label">できること</span>
         <div class="check-row">
           <span class="check-icon">📎</span>
           <div><strong>SNSに貼るだけで全サービスを一覧表示</strong></div>
         </div>
         <div class="check-row">
-          <span class="check-icon">📊</span>
-          <div><strong>アクセス解析でどのサービスが人気か把握</strong></div>
-        </div>
-        <div class="check-row">
           <span class="check-icon">✏️</span>
           <div><strong>デザイン・並び順をいつでも自由に編集</strong></div>
         </div>
-      </div>
-
-      <!-- 右：ビジュアル -->
-      <div style="display:flex; flex-direction:column; align-items:center;">
-        <div class="phone-mock">
-          <div class="phone-mock__screen">👤</div>
-          <div class="phone-mock__body">
-            <div class="phone-mock__label" style="font-weight:700; color:var(--warm-800);">田中 あやか</div>
-            <div class="phone-mock__label">ヨガインストラクター</div>
-            <div class="phone-mock__btn">🧘 体験レッスン →</div>
-            <div class="phone-mock__btn">📅 月謝制クラス →</div>
-            <div class="phone-mock__btn">📚 動画コース →</div>
-          </div>
-        </div>
-        <!-- 統計ボックス -->
-        <div class="stat-row">
-          <div class="stat-box">
-            <div class="stat-box__num">500+</div>
-            <div class="stat-box__label">月間<br>アクセス</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__num">38%</div>
-            <div class="stat-box__label">クリック率<br>（平均比）</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__num">8件</div>
-            <div class="stat-box__label">連携<br>サービス数</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     スライド 5 — プロフィールリンク②（使い方・活用シーン）
-══════════════════════════════════════════ -->
-<section class="section section--gray">
-  <div class="section__inner">
-
-    <div class="feature-header">
-      <div class="feature-num">01</div>
-      <div>
-        <div class="feature-name">🔗 プロフィールリンク</div>
-        <div class="feature-sub">使い方と活用シーン</div>
-      </div>
-    </div>
-
-    <div class="feature-2col">
-      <!-- 左：使い方ステップ -->
-      <div>
-        <span class="sub-label">使い方（3ステップ）</span>
+        <span class="sub-label" style="margin-top:0.7rem;">使い方（3ステップ）</span>
         <div class="how-steps">
           <div class="how-step">
             <div class="how-step__num">1</div>
             <div class="how-step__body">
-              <div class="how-step__title">プロフィールページを開く</div>
+              <div class="how-step__title">プロフィールリンク編集ページを開く</div>
               <div class="how-step__desc"><span class="url-tag">mosh.jp/creator/profile</span></div>
             </div>
           </div>
@@ -651,31 +399,22 @@
         </div>
       </div>
 
-      <!-- 右：活用シーン -->
-      <div>
-        <span class="sub-label">こんな方に使ってほしい</span>
-        <div class="usecase-cards">
-          <div class="usecase-card">
-            <div class="usecase-card__role">🧘 ヨガ・フィットネス系クリエイター</div>
-            <div class="usecase-card__text">Instagramのプロフ欄1本で全メニューを見せられる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">🎓 コーチ・コンサル系クリエイター</div>
-            <div class="usecase-card__text">どのサービスへのアクセスが多いかリアルタイムで解析できる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">🎨 ハンドメイド・制作系クリエイター</div>
-            <div class="usecase-card__text">販売・ワークショップ・受注をSNS経由で一本化できる</div>
-          </div>
-        </div>
+      <!-- 右：画像 -->
+      <div class="img-caption-wrap">
+        <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/19f069f7-ed83-42aa-9cce-a25d99d4cf30/image/w=1920,quality=90,fit=scale-down" alt="プロフィールリンクの実際の画面" class="feature-img">
+        <p class="img-caption">▲ 実際のMOSH画面（プロフィールリンク）</p>
       </div>
+    </div>
+
+    <div class="feature-cta">
+      <a href="https://mosh.jp/creator/profile" class="cta-btn" target="_blank">プロフィールリンクを設定する →</a>
     </div>
 
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     スライド 6 — AI Studio①（概要）
+     スライド 4 — AI Studio
 ══════════════════════════════════════════ -->
 <section class="section section--light">
   <div class="section__inner">
@@ -684,25 +423,23 @@
       <div class="feature-num">02</div>
       <div>
         <div class="feature-name">🤖 AI Studio</div>
-        <div class="feature-sub">AIがコンテンツ制作・セールスをサポート</div>
-      </div>
-    </div>
-
-    <!-- Before / After -->
-    <div class="before-after">
-      <div class="ba-item ba-item--before">
-        <div class="ba-item__label">😓 今まで</div>
-        サービス説明を書くのに1〜2時間。何を書けばいいか悩む
-      </div>
-      <div class="ba-item ba-item--after">
-        <div class="ba-item__label">✅ これから</div>
-        キーワードを入れるだけで魅力的な文章が数秒で完成
+        <div class="feature-sub">AIがサービス作成をサポート</div>
       </div>
     </div>
 
     <div class="feature-2col">
-      <!-- 左：できること -->
+      <!-- 左：説明 -->
       <div>
+        <div class="before-after">
+          <div class="ba-item ba-item--before">
+            <div class="ba-item__label">😓 今まで</div>
+            サービス説明を書くのに1〜2時間。何を書けばいいか悩む
+          </div>
+          <div class="ba-item ba-item--after">
+            <div class="ba-item__label">✅ これから</div>
+            キーワードを入れるだけで魅力的な文章が数秒で完成
+          </div>
+        </div>
         <span class="sub-label">できること</span>
         <div class="check-row">
           <span class="check-icon">✍️</span>
@@ -712,51 +449,7 @@
           <span class="check-icon">💡</span>
           <div><strong>売れやすい価格・見せ方をAIがアドバイス</strong></div>
         </div>
-        <div class="check-row">
-          <span class="check-icon">💬</span>
-          <div><strong>問い合わせ返信・フォローメールをAIが下書き</strong></div>
-        </div>
-      </div>
-
-      <!-- 右：チャットバブル UI -->
-      <div class="visual-panel">
-        <div class="visual-panel__title">AIとの会話 イメージ</div>
-        <div class="chat-container">
-          <div class="chat-bubble chat-bubble--user">
-            <div class="chat-bubble__label">💬 あなた</div>
-            ヨガ初心者向け、土曜朝、オンライン、緊張ほぐし目的
-          </div>
-          <div class="chat-timer">↓ 約5秒</div>
-          <div class="chat-bubble chat-bubble--ai">
-            <div class="chat-bubble__label">🤖 AI Studio</div>
-            🧘 <strong>はじめてのヨガ、自宅で気軽に</strong><br>
-            <span style="font-size:0.72rem; color:var(--warm-600);">毎週土曜の朝、60分で心と体がリセット。初心者専用クラスで丁寧に指導します。</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     スライド 7 — AI Studio②（使い方・活用シーン）
-══════════════════════════════════════════ -->
-<section class="section section--gray">
-  <div class="section__inner">
-
-    <div class="feature-header">
-      <div class="feature-num">02</div>
-      <div>
-        <div class="feature-name">🤖 AI Studio</div>
-        <div class="feature-sub">使い方と活用シーン</div>
-      </div>
-    </div>
-
-    <div class="feature-2col">
-      <!-- 左：使い方 -->
-      <div>
-        <span class="sub-label">使い方（3ステップ）</span>
+        <span class="sub-label" style="margin-top:0.7rem;">使い方（3ステップ）</span>
         <div class="how-steps">
           <div class="how-step">
             <div class="how-step__num">1</div>
@@ -782,33 +475,24 @@
         </div>
       </div>
 
-      <!-- 右：活用シーン -->
-      <div>
-        <span class="sub-label">こんな方に使ってほしい</span>
-        <div class="usecase-cards">
-          <div class="usecase-card">
-            <div class="usecase-card__role">📝 文章を書くのが苦手な方</div>
-            <div class="usecase-card__text">AIがサービスの特徴を魅力的な文章にしてくれる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">🚀 新しいサービスをすぐ出したい方</div>
-            <div class="usecase-card__text">アイデアを伝えるだけでページの骨格が数分で完成する</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">📈 売上をもっと伸ばしたい方</div>
-            <div class="usecase-card__text">既存の説明文をAIでリライトして成約率を改善できる</div>
-          </div>
-        </div>
+      <!-- 右：画像 -->
+      <div class="img-caption-wrap">
+        <img src="https://mosh.jp/magazine/wp-content/uploads/2025/12/renewal_02_1.jpg" alt="AI Studioの実際の画面" class="feature-img">
+        <p class="img-caption">▲ 実際のMOSH画面（AI Studio）</p>
       </div>
+    </div>
+
+    <div class="feature-cta">
+      <a href="https://mosh.jp/creator/agent-chats" class="cta-btn" target="_blank">AI Studioを使ってみる →</a>
     </div>
 
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     スライド 8 — ページビルダー①（概要）
+     スライド 5 — ページビルダー
 ══════════════════════════════════════════ -->
-<section class="section section--light">
+<section class="section section--gray">
   <div class="section__inner">
 
     <div class="feature-header">
@@ -819,25 +503,23 @@
       </div>
     </div>
 
-    <!-- Before / After -->
-    <div class="before-after">
-      <div class="ba-item ba-item--before">
-        <div class="ba-item__label">😓 今まで</div>
-        LPを作るには外注か別ツールの習得が必要。コストも時間もかかる
-      </div>
-      <div class="ba-item ba-item--after">
-        <div class="ba-item__label">✅ これから</div>
-        ノーコードで自分だけのページを作れる。決済もそのまま組み込める
-      </div>
-    </div>
-
     <div class="feature-2col">
-      <!-- 左：できること -->
+      <!-- 左：説明 -->
       <div>
+        <div class="before-after">
+          <div class="ba-item ba-item--before">
+            <div class="ba-item__label">😓 今まで</div>
+            LPを作るには外注か別ツールの習得が必要。コストも時間もかかる
+          </div>
+          <div class="ba-item ba-item--after">
+            <div class="ba-item__label">✅ これから</div>
+            ノーコードで自分だけのページを作れる。決済もそのまま組み込める
+          </div>
+        </div>
         <span class="sub-label">できること</span>
         <div class="check-row">
           <span class="check-icon">🧱</span>
-          <div><strong>ブロックを並べるだけでLPが完成</strong></div>
+          <div><strong>テンプレートから簡単に作成</strong></div>
         </div>
         <div class="check-row">
           <span class="check-icon">🛒</span>
@@ -847,62 +529,19 @@
           <span class="check-icon">📱</span>
           <div><strong>PC・スマホどちらも美しく表示</strong></div>
         </div>
-      </div>
-
-      <!-- 右：ブラウザモック -->
-      <div class="visual-panel" style="padding:0; overflow:hidden; background:transparent; border:none; box-shadow:none;">
-        <div class="browser-mock">
-          <div class="browser-mock__bar">
-            <div class="browser-mock__dots">
-              <div class="browser-mock__dot"></div>
-              <div class="browser-mock__dot"></div>
-              <div class="browser-mock__dot"></div>
-            </div>
-            <div class="browser-mock__url">mosh.jp/lp/あなたのサービス</div>
-          </div>
-          <div class="browser-mock__body">
-            <div class="pb-block">🖼️ ヘッダー画像ブロック</div>
-            <div class="pb-block">✏️ テキスト・見出しブロック</div>
-            <div class="pb-block">💬 お客様の声ブロック</div>
-            <div class="pb-block pb-block--cta">🛒 申込・決済ボタン（MOSH連携）</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     スライド 9 — ページビルダー②（使い方・活用シーン）
-══════════════════════════════════════════ -->
-<section class="section section--gray">
-  <div class="section__inner">
-
-    <div class="feature-header">
-      <div class="feature-num">03</div>
-      <div>
-        <div class="feature-name">🎨 ページビルダー</div>
-        <div class="feature-sub">使い方と活用シーン</div>
-      </div>
-    </div>
-
-    <div class="feature-2col">
-      <!-- 左：使い方 -->
-      <div>
-        <span class="sub-label">使い方（3ステップ）</span>
+        <span class="sub-label" style="margin-top:0.7rem;">使い方（3ステップ）</span>
         <div class="how-steps">
           <div class="how-step">
             <div class="how-step__num">1</div>
             <div class="how-step__body">
-              <div class="how-step__title">ランディングページ管理を開く</div>
+              <div class="how-step__title">ページビルダーを開く</div>
               <div class="how-step__desc"><span class="url-tag">mosh.jp/creator/landing-pages</span></div>
             </div>
           </div>
           <div class="how-step">
             <div class="how-step__num">2</div>
             <div class="how-step__body">
-              <div class="how-step__title">ブロックを追加・テキストや画像を入れ替え</div>
+              <div class="how-step__title">テンプレートを選択、要素を編集</div>
               <div class="how-step__desc">クリックして直接編集。ブロックをドラッグで並べ替え</div>
             </div>
           </div>
@@ -916,31 +555,22 @@
         </div>
       </div>
 
-      <!-- 右：活用シーン -->
-      <div>
-        <span class="sub-label">こんな方に使ってほしい</span>
-        <div class="usecase-cards">
-          <div class="usecase-card">
-            <div class="usecase-card__role">📣 イベント・セミナー開催者</div>
-            <div class="usecase-card__text">集客LPをすぐ作れる。デザイナー外注コストが不要になる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">🔄 継続サービス提供者</div>
-            <div class="usecase-card__text">募集ページを自分で更新できるので都度依頼の手間がなくなる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">🌱 MOSHをはじめたばかりの方</div>
-            <div class="usecase-card__text">テンプレートがあるのですぐ作れる。まずシンプルなページから</div>
-          </div>
-        </div>
+      <!-- 右：画像 -->
+      <div class="img-caption-wrap">
+        <img src="https://mosh.jp/magazine/wp-content/uploads/2026/01/image-setting.png" alt="ページビルダーの実際の画面" class="feature-img">
+        <p class="img-caption">▲ 実際のMOSH画面（ページビルダー）</p>
       </div>
+    </div>
+
+    <div class="feature-cta">
+      <a href="https://mosh.jp/creator/landing-pages" class="cta-btn" target="_blank">ページビルダーを使ってみる →</a>
     </div>
 
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     スライド 10 — ワークフロー①（概要）
+     スライド 6 — ワークフロー
 ══════════════════════════════════════════ -->
 <section class="section section--light">
   <div class="section__inner">
@@ -953,21 +583,19 @@
       </div>
     </div>
 
-    <!-- Before / After -->
-    <div class="before-after">
-      <div class="ba-item ba-item--before">
-        <div class="ba-item__label">😓 今まで</div>
-        申込のたびにお礼・リマインド・フォローを手動で送っていた
-      </div>
-      <div class="ba-item ba-item--after">
-        <div class="ba-item__label">✅ これから</div>
-        一度設定すれば申込〜フォローまで全自動。手作業ゼロ
-      </div>
-    </div>
-
     <div class="feature-2col">
-      <!-- 左：できること -->
+      <!-- 左：説明 -->
       <div>
+        <div class="before-after">
+          <div class="ba-item ba-item--before">
+            <div class="ba-item__label">😓 今まで</div>
+            申込のたびにお礼・リマインド・フォローを手動で送っていた
+          </div>
+          <div class="ba-item ba-item--after">
+            <div class="ba-item__label">✅ これから</div>
+            一度設定すれば申込〜フォローまで全自動。手作業ゼロ
+          </div>
+        </div>
         <span class="sub-label">できること</span>
         <div class="check-row">
           <span class="check-icon">📧</span>
@@ -981,42 +609,7 @@
           <span class="check-icon">🔀</span>
           <div><strong>条件分岐で顧客ごとに最適な対応を実現</strong></div>
         </div>
-      </div>
-
-      <!-- 右：ワークフロービジュアル（色分け強化）-->
-      <div class="visual-panel">
-        <div class="visual-panel__title">申込後の自動フロー 例</div>
-        <div class="wf-node wf-node--trigger">📋 申込完了（トリガー）</div>
-        <div class="wf-arrow-down">↓<span>即座に</span></div>
-        <div class="wf-node wf-node--action">📧 お礼メール＋参加方法を自動送信</div>
-        <div class="wf-arrow-down">↓<span>3日前に</span></div>
-        <div class="wf-node wf-node--action">⏰ リマインドメールを自動送信</div>
-        <div class="wf-arrow-down">↓<span>翌日に</span></div>
-        <div class="wf-node wf-node--follow">🎉 感想ヒアリング・次回案内を自動送信</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     スライド 11 — ワークフロー②（使い方・活用シーン）
-══════════════════════════════════════════ -->
-<section class="section section--gray">
-  <div class="section__inner">
-
-    <div class="feature-header">
-      <div class="feature-num">04</div>
-      <div>
-        <div class="feature-name">⚡ ワークフロー</div>
-        <div class="feature-sub">使い方と活用シーン</div>
-      </div>
-    </div>
-
-    <div class="feature-2col">
-      <!-- 左：使い方 -->
-      <div>
-        <span class="sub-label">使い方（3ステップ）</span>
+        <span class="sub-label" style="margin-top:0.7rem;">使い方（3ステップ）</span>
         <div class="how-steps">
           <div class="how-step">
             <div class="how-step__num">1</div>
@@ -1042,24 +635,15 @@
         </div>
       </div>
 
-      <!-- 右：活用シーン -->
-      <div>
-        <span class="sub-label">こんな方に使ってほしい</span>
-        <div class="usecase-cards">
-          <div class="usecase-card">
-            <div class="usecase-card__role">😓 申込対応に追われている方</div>
-            <div class="usecase-card__text">お礼・リマインド・フォローを自動化して本業に集中できる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">🔁 リピーターを増やしたい方</div>
-            <div class="usecase-card__text">フォローアップを自動化して顧客満足とリピート率を高められる</div>
-          </div>
-          <div class="usecase-card">
-            <div class="usecase-card__role">📐 複数サービスを運営している方</div>
-            <div class="usecase-card__text">サービスごとに異なるフローを設定して一元管理できる</div>
-          </div>
-        </div>
+      <!-- 右：画像 -->
+      <div class="img-caption-wrap">
+        <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/a2bdd56f-1c2a-48dd-b1f3-d501bc3a2b2a/workflow_hero_image/w=1920,quality=90,fit=scale-down" alt="ワークフローの実際の画面" class="feature-img">
+        <p class="img-caption">▲ 実際のMOSH画面（ワークフロー）</p>
       </div>
+    </div>
+
+    <div class="feature-cta">
+      <a href="https://mosh.jp/creator/scenarios" class="cta-btn" target="_blank">ワークフローを設定する →</a>
     </div>
 
   </div>
@@ -1068,10 +652,10 @@
 <!-- ══════════════════════════════════════════
      スライド 12 — クロージング
 ══════════════════════════════════════════ -->
-<section class="section section--dark">
+<section class="section section--gray">
   <div class="section__inner" style="text-align:center;">
-    <span class="tag" style="background:rgba(255,255,255,0.25); color:#fff;">さあ、はじめよう</span>
-    <h2 class="section-title" style="color:#fff; font-size:clamp(1.6rem, 3vh, 2.8rem);">
+    <span class="tag">さあ、はじめよう</span>
+    <h2 class="section-title" style="font-size:clamp(1.6rem, 3vh, 2.8rem);">
       今すぐ新機能を試してみましょう
     </h2>
 
@@ -1085,29 +669,29 @@
     </div>
 
     <div class="grid-2" style="max-width:520px; margin: 0 auto clamp(1.2rem, 2.5vh, 2rem);">
-      <div class="step-card" style="background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.28);">
+      <div class="step-card">
         <div class="step-card__icon">🔗</div>
-        <div class="step-card__title" style="color:#fff;">プロフィールリンク</div>
-        <div class="step-card__desc" style="color:rgba(255,255,255,0.7);">mosh.jp/creator/profile</div>
+        <div class="step-card__title">プロフィールリンク</div>
+        <div class="step-card__desc">mosh.jp/creator/profile</div>
       </div>
-      <div class="step-card" style="background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.28);">
+      <div class="step-card">
         <div class="step-card__icon">🤖</div>
-        <div class="step-card__title" style="color:#fff;">AI Studio</div>
-        <div class="step-card__desc" style="color:rgba(255,255,255,0.7);">mosh.jp/creator/agent-chats</div>
+        <div class="step-card__title">AI Studio</div>
+        <div class="step-card__desc">mosh.jp/creator/agent-chats</div>
       </div>
-      <div class="step-card" style="background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.28);">
+      <div class="step-card">
         <div class="step-card__icon">🎨</div>
-        <div class="step-card__title" style="color:#fff;">ページビルダー</div>
-        <div class="step-card__desc" style="color:rgba(255,255,255,0.7);">mosh.jp/creator/landing-pages</div>
+        <div class="step-card__title">ページビルダー</div>
+        <div class="step-card__desc">mosh.jp/creator/landing-pages</div>
       </div>
-      <div class="step-card" style="background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.28);">
+      <div class="step-card">
         <div class="step-card__icon">⚡</div>
-        <div class="step-card__title" style="color:#fff;">ワークフロー</div>
-        <div class="step-card__desc" style="color:rgba(255,255,255,0.7);">mosh.jp/creator/scenarios</div>
+        <div class="step-card__title">ワークフロー</div>
+        <div class="step-card__desc">mosh.jp/creator/scenarios</div>
       </div>
     </div>
 
-    <a href="https://mosh.jp/dashboard" target="_blank" rel="noopener" class="cta-bar"
+    <a href="https://mosh.jp/creator/home" target="_blank" rel="noopener" class="cta-bar"
        style="display:inline-block; text-decoration:none; max-width:320px; margin:0 auto;">
       MOSHダッシュボードを開く →
     </a>
